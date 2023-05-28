@@ -1,0 +1,63 @@
+
+
+.app {
+    background-image: url("../public/clear.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0.7rem;
+}
+.input::placeholder{
+    color:rgba(0, 0, 0, 0.678);
+    animation: placeholderAnimation 2s infinite;
+}
+.input{
+    border: 0.1px solid transparent;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+    background-color: rgba(0, 0, 0, 0.278);
+    box-shadow: 1px 1px 3px black;
+    color: rgb(255, 255, 255);
+    width: 280px;
+    transition: width 0.5s ease-in-out;
+font-family: 'Open Sans', sans-serif;
+}
+.input:focus {
+    outline: none;
+    width: 160px;
+    transition: width 1.2s ease-in-out;
+}
+
+.input:focus::placeholder {
+    color: transparent;
+}
+
+.input::selection{
+    background-color: rgb(255, 255, 255);
+}
+
+.form{
+    display: flex;
+    gap: 1rem;
+    max-width: 300px;
+
+}
+
+.button_search{
+    animation: buttonAnimation 1s infinite;
+    border-radius: 0.9rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.516);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.button_search:hover{
+    background-color: rgba(236, 231, 231, 0.6);
+    color: black;
+}

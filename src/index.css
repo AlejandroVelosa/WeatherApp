@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&family=Open+Sans&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.font {
+    font-family: 'Lato', sans-serif;
+}
+.font-to {
+    font-family: 'Open Sans',sans-serif;
+}
+
+ul{
+    list-style-type: none;
+}
+
