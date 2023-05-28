@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles/WeatherCard.css";
+import "../componets/styles/weatherCard.css";
 
 const WeatherCard = ({ weather, temp, backgroundImage }) => {
   const [isCelsius, setisCelsius] = useState(true);
