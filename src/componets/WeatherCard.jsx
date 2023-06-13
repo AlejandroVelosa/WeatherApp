@@ -11,9 +11,8 @@ const WeatherCard = ({ weather, temp, backgroundImage }) => {
   };
 
   return (
-    <article className="weather" style={{ backgroundImage }}>
+    <article className="weather" >
       <header className="weather_header">
-        <h1 className="weather_title">Weather</h1>
         <h2 className="weather_subtitle">
           {weather?.name} , {weather?.sys.country}
         </h2>
@@ -27,36 +26,38 @@ const WeatherCard = ({ weather, temp, backgroundImage }) => {
             }
             alt=""
           />
+
         </div>
-        <div className="weather_info">
+        <div className="weather_temperature">
+          <h2 className="weather_temp">
+            {isCelsius ? temp?.celsius + " °" : temp?.farenheit + " °F"}
+          </h2>
           <h3 className="weather_info-title">
             "{weather?.weather[0].description}"
           </h3>
-          <ul className="weather_list">
-            <li className="weather_list-item">
-              <span className="weather_list-label">Wind Speed </span>
-              <span className="weather_list-value">
-                {weather?.wind.speed}m/s
-              </span>
-            </li>
-            <li className="weather_list-item">
-              <span className="weather_list-label">Clouds </span>
-              <span className="weather_list-value">{weather?.clouds.all}%</span>
-            </li>
-            <li className="weather_list-item">
-              <span className="weather_list-label">Pressure</span>
-              <span className="weather_list-value">
-                {weather?.main.pressure} hPa
-              </span>
-            </li>
-          </ul>
         </div>
       </section>
+      <section className="weather_info">
+        <ul className="weather_list">
+          <li className="weather_list-item">
+            <span className="weather_list-label">Wind Speed <i className="bx bx-wind"></i> </span>
+            <span className="weather_list-value">
+              {weather?.wind.speed}m/s
+            </span>
+          </li>
+          <li className="weather_list-item">
+            <span className="weather_list-label">Clouds <i className="bx bx-cloud"></i> </span>
+            <span className="weather_list-value">{weather?.clouds.all}% </span>
+          </li>
+          <li className="weather_list-item">
+            <span className="weather_list-label">Pressure <i className="bx bx-vertical-center"></i></span>
+            <span className="weather_list-value">
+              {weather?.main.pressure} hPa
+            </span>
+          </li>
+        </ul>
+      </section>
       <footer className="weather_footer">
-        <h2 className="weather_ahora"> Now </h2>
-        <h2 className="weather_temp">
-          {isCelsius ? temp?.celsius + " °C" : temp?.farenheit + " °F"}
-        </h2>
         <button className="weather_btn" onClick={handleChange}>
           {changeF ? "change to °F" : "change to °C"}
         </button>

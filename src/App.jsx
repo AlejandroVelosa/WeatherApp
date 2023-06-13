@@ -10,8 +10,9 @@ function App() {
   const [weather, setWeather] = useState();
   const [temp, setTemp] = useState();
   const [cityInput, setCityInput] = useState("");
-  const [backgroundImage, setBackgroundImage] = useState("");
 
+
+  console.log(weather);
   // obtener la ubicacion actual del usuario
   useEffect(() => {
     const success = (position) => {
@@ -26,9 +27,8 @@ function App() {
   // obtener el clima actual por coordenadas
   useEffect(() => {
     if (coords) {
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${
-        coords.latitud
-      }&lon=${coords.longitude}&appid=${getApiKey()}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitud
+        }&lon=${coords.longitude}&appid=${getApiKey()}`;
       axios
         .get(url)
         .then((res) => {
@@ -76,50 +76,52 @@ function App() {
   };
 
   // para hacer la carga de las imagnes
-  useEffect(() => {
-    const weatherBackgrounds = {
-      Clear: "url(../image/clearSki.jpg)",
-      Clouds: "url(../image/fewclouds.jpg)",
-      Rain: "url(../image/rain.jpg)",
-      scatteredclouds: "url(../scatteredclouds.jpg)",
-      brokenClouds: "url(../image/brokenclouds.jpg)",
-      thunderstorm: "url(../image/thunderstorm.jpg)",
-      showerrain: "url(../image/showerrain.jpg)",
-      lightintensitydrizzle: "url(../image/light.jpg)",
-    };
+  // useEffect(() => {
+  //   const weatherBackgrounds = {
+  //     Clear: "url(../image/clearSki.jpg)",
+  //     Clouds: "url(../image/fewclouds.jpg)",
+  //     Rain: "url(../image/rain.jpg)",
+  //     scatteredclouds: "url(../scatteredclouds.jpg)",
+  //     brokenClouds: "url(../image/brokenclouds.jpg)",
+  //     thunderstorm: "url(../image/thunderstorm.jpg)",
+  //     showerrain: "url(../image/showerrain.jpg)",
+  //     lightintensitydrizzle: "url(../image/light.jpg)",
+  //   };
 
-    const weatherType = weather?.weather[0].main;
-    const background = weatherBackgrounds[weatherType] || "";
+  //   const weatherType = weather?.weather[0].main;
+  //   const background = weatherBackgrounds[weatherType] || "";
 
-    setBackgroundImage(background);
-  }, [weather]);
+  //   setBackgroundImage(background);
+  // }, [weather]);
 
   return (
-    <>
-      <div className="app">
-        <form onSubmit={handleCitySeacrh} className="form">
-          <input
-            className="input"
-            type="text"
-            value={cityInput}
-            onChange={handleCityImput}
-            placeholder="Search your city.... "
-          />
-          <button type="submit" className="button_search">
-            Search
-          </button>
-        </form>
+    <section className="app background-container">
+      <div className="app_total">
+        <div className="formulario">
+          <form onSubmit={handleCitySeacrh} className="form">
+            <input
+              className=" input-search"
+              type="text"
+              value={cityInput}
+              onChange={handleCityImput}
+              placeholder="Search your city.... "
+            />
+            <button type="submit" className=" btn-search">
+              <i className="bx bx-search"></i>
+            </button>
+          </form>
+        </div>
         {weather ? (
           <WeatherCard
             weather={weather}
             temp={temp}
-            backgroundImage={backgroundImage}
           />
         ) : (
           <Loading />
         )}
       </div>
-    </>
+
+    </section>
   );
 }
 
