@@ -1,46 +1,7 @@
-/*html {
-    height: 100%;
-    max-height: 600px;
-    background-color: hsla(200, 40%, 30%, .4);
-    background-image:
-        url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'),
-        url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
-        url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
-        url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
-        url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png');
-    background-repeat: repeat-x;
-    background-position: 0 20%,
-        0 100%,
-        0 50%,
-        0 100%,
-        0 0;
-    background-size: 2500px,
-        800px,
-        500px 200px,
-        1000px,
-        400px 260px;
-    animation: 50s para infinite linear;
-}
-
-@keyframes para {
-    100% {
-        background-position:
-            -5000px 20%,
-            -800px 95%,
-            500px 50%,
-            1000px 100%,
-            400px 0;
-    }
-}
-*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .app {
-    background: #ffd89b;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #19547b, #f5c476);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #19547b, #f5c16f);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: rgba(0, 0, 0, 0.423);
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -50,6 +11,8 @@
     flex-direction: column;
     gap: 2rem;
     padding: 0.7rem;
+        background-image: url('../fondos.png');
+            background-size: cover;
 
 }
 
@@ -59,6 +22,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
+
 }
 
 .formulario {
@@ -67,57 +31,58 @@
     margin-right: auto;
 }
 
-.input::placeholder {
-    color: rgba(237, 226, 226, 0.678);
-    animation: placeholderAnimation 2s infinite;
-}
 
-.input {
-    border: 0.1px solid transparent;
-    padding: 0.2rem;
-    border-radius: 0.2rem;
-    background-color: rgba(232, 226, 226, 0.278);
-    box-shadow: 1px 1px 3px black;
-    color: rgb(255, 255, 255);
-    width: 200px;
-    font-family: 'Open Sans', sans-serif;
-}
 
-.input:focus {
+
+.input[type="text"] {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.221);
+    box-shadow: 0px 6px 1px -1px rgba(0, 0, 0, 0.208);
+    border-color: rgba(7, 4, 14, 0);
+    border-radius: 50px;
+    block-size: 20px;
+    margin: 7px auto;
+    padding: 18px 15px;
     outline: none;
-    width: 200px;
-    transition: width 1.2s ease-in-out;
+    width: 230px;
+    max-width: 400px;
+    transition: 0.5s;
 }
 
-.input:focus::placeholder {
-    color: transparent;
+
+
+.input[type="text"]:focus {
+    width: 280px;
+    max-width: 480px;
 }
 
-.input::selection {
-    background-color: rgb(13, 13, 13);
-}
-
-.form {
+.app_container {
     display: flex;
-    gap: 1rem;
-    max-width: 300px;
-
-}
-
-.button_search {
-    background-color: transparent;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
     padding: 1rem;
-    cursor: pointer;
-    border: none;
-    font-size: 1.2rem;
-    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgb(0, 0, 0) 0px 30px 60px -30px, rgb(10, 37, 64) 0px -2px 6px 0px inset;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 515px;
+    font-weight: 500;
+    color: black;
+    z-index: 1;
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.523);
+
 }
 
+.container-input {
+    width: 100%;
+}
 
-@media screen and (min-width:580px) {
-    .app {
-        background-color: hsla(200, 40%, 30%, .4);
-        background-image: url('../sunset.jpg');
+@media screen and (min-width:1032px) {
+
+    .app{
+        background-color: #524b4b;
+        background-image: none;
     }
 
 
@@ -125,24 +90,66 @@
         display: flex;
         flex-direction: column;
         border-radius: 1rem;
-        background-color: rgba(255, 255, 255, 0.373);
+        padding: 1rem;
+
+
+
     }
 
+    
     .form {
         display: flex;
         gap: 1rem;
         max-width: 500px;
+    
 
     }
 
     .input-search {
         width: 500px;
+
+
     }
 
     .app_total {
-        background-color: rgba(0, 0, 0, 0.752);
+        background-color: rgba(235, 234, 234, 0.752);
         width: 400px;
     }
+
+    .input[type="text"] {
+background-color: rgba(255, 255, 255, 0.5);
+        outline: none;
+        text-align: center;
+        width: 580px;
+        transition: 0.5s;
+    }
+
+    .input[type="text"]:hover {
+        width:  610px;
+    }
+
+    .input[type="text"]:focus {
+        width: 625px;
+    }
+        .app_container{
+            max-width: 1024px;
+            height: 550px;
+
+        }
+        .container_weather{
+
+            display: flex;
+            align-items: center;
+            height: 100%;
+            
+        }
+
+        .app_container{
+            background-color: rgba(255, 255, 255, 0.101);
+                background-image: url('https://images.unsplash.com/photo-1487621167305-5d248087c724?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80');
+                    background-size: cover;
+        }
+
 
 
 }

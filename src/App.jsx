@@ -10,7 +10,7 @@ function App() {
   const [weather, setWeather] = useState();
   const [temp, setTemp] = useState();
   const [cityInput, setCityInput] = useState("");
-
+  const [isLoading, setIsLoading] = useState(true)
 
   console.log(weather);
   // obtener la ubicacion actual del usuario
@@ -33,6 +33,7 @@ function App() {
         .get(url)
         .then((res) => {
           setWeather(res.data);
+          setIsLoading(false);
           const objTemp = {
             celsius: (res.data.main.temp - 273.15).toFixed(0),
             farenheit: (((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(
@@ -41,7 +42,10 @@ function App() {
           };
           setTemp(objTemp);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err)
+          setIsLoading(true)
+        });
     }
   }, [coords]);
 
@@ -55,7 +59,7 @@ function App() {
         setWeather(res.data);
         const objTemp = {
           celsius: (res.data.main.temp - 273.15).toFixed(0),
-          farenheit: (((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(1),
+          farenheit: (((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(0),
         };
         setTemp(objTemp);
       })
@@ -75,53 +79,36 @@ function App() {
     }
   };
 
-  // para hacer la carga de las imagnes
-  // useEffect(() => {
-  //   const weatherBackgrounds = {
-  //     Clear: "url(../image/clearSki.jpg)",
-  //     Clouds: "url(../image/fewclouds.jpg)",
-  //     Rain: "url(../image/rain.jpg)",
-  //     scatteredclouds: "url(../scatteredclouds.jpg)",
-  //     brokenClouds: "url(../image/brokenclouds.jpg)",
-  //     thunderstorm: "url(../image/thunderstorm.jpg)",
-  //     showerrain: "url(../image/showerrain.jpg)",
-  //     lightintensitydrizzle: "url(../image/light.jpg)",
-  //   };
-
-  //   const weatherType = weather?.weather[0].main;
-  //   const background = weatherBackgrounds[weatherType] || "";
-
-  //   setBackgroundImage(background);
-  // }, [weather]);
 
   return (
-    <section className="app background-container">
-      <div className="app_total">
-        <div className="formulario">
-          <form onSubmit={handleCitySeacrh} className="form">
-            <input
-              className=" input-search"
-              type="text"
-              value={cityInput}
-              onChange={handleCityImput}
-              placeholder="Search your city.... "
-            />
-            <button type="submit" className=" btn-search">
-              <i className="bx bx-search"></i>
-            </button>
-          </form>
-        </div>
-        {weather ? (
-          <WeatherCard
-            weather={weather}
-            temp={temp}
-          />
-        ) : (
-          <Loading />
-        )}
-      </div>
+    <div className='app'>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        weather && (
+          <div className='app_container'>
+            <div className='container-input'>
+              <form onSubmit={handleCitySeacrh}>
+                <input
+                  onChange={handleCityImput}
+                  className='input'
+                  type="text"
+                  placeholder='Search your City..'
+                  value={cityInput}
+                />
+              </form>
+            </div>
+            <div className="container_weather">
+              <WeatherCard
+                weather={weather}
+                temp={temp}
+              />
+            </div>
+          </div>
+        )
+      )}
+    </div>
 
-    </section>
   );
 }
 
