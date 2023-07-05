@@ -11,9 +11,6 @@
     flex-direction: column;
     gap: 2rem;
     padding: 0.7rem;
-        background-image: url('../fondos.png');
-            background-size: cover;
-
 }
 
 
@@ -70,7 +67,12 @@
     color: black;
     z-index: 1;
     background-image: none;
-    background-color: rgba(255, 255, 255, 0.523);
+background: #F0F2F0;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to botton, #000C40, #F0F2F0);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top , #000c40d2, #F0F2F0);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -83,6 +85,7 @@
     .app{
         background-color: #524b4b;
         background-image: none;
+
     }
 
 
