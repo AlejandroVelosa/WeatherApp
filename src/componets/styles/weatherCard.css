@@ -424,7 +424,7 @@ background-color: rgba(68, 60, 60, 0.473);
   }
   .weather_temp{
 justify-content: center;
-    font-size: 3rem;
+    font-size: 2.7rem;
     width: 100%;
     color: white;
     margin-top: 1rem;
@@ -554,7 +554,7 @@ background-color: rgba(68, 60, 60, 0.473);
   }
 
   .weather_btn:hover{
-background-color: rgba(68, 60, 60, 0.473);
+background-color: rgba(127, 117, 117, 0.473);
             box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgb(0, 0, 0) 0px 30px 60px -30px, rgb(10, 37, 64) 0px -2px 6px 0px inset;
   }
 }
