@@ -4,6 +4,8 @@ import axios from "axios";
 import getApiKey from "./utils/getApiKey";
 import WeatherCard from "./componets/WeatherCard";
 import Loading from "./componets/Loading";
+import Formulario from "./componets/Formulario";
+import Hightlights from "./componets/Hightlights";
 
 function App() {
   const [coords, setCoords] = useState();
@@ -65,20 +67,22 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  // Manejar el cambio en el campo de entrada de la ciudad
-  const handleCityImput = (e) => {
-    setCityInput(e.target.value);
-  };
 
-  // Manejar el envío del formulario de búsqueda de ciudad
-  const handleCitySeacrh = (e) => {
-    e.preventDefault();
-    if (cityInput) {
-      getWeatherCity(cityInput);
-      setCityInput("");
-    }
-  };
 
+  const getWeatherDays = () => {
+    const url = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=44.34&lon=10.99&appid=${getApiKey()}`;
+    axios
+      .get(url)
+      .then((res) => {
+        setWeather(res.data);
+        const objTemp = {
+          celsius: (res.data.main.temp - 273.15).toFixed(0),
+          farenheit: (((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(0),
+        };
+        setTemp(objTemp);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className='app'>
@@ -86,25 +90,22 @@ function App() {
         <Loading />
       ) : (
         weather && (
-          <div className='app_container'>
-            <div className='container-input'>
-              <form onSubmit={handleCitySeacrh}>
-                <input
-                  onChange={handleCityImput}
-                  className='input'
-                  type="text"
-                  placeholder='Search your City..'
-                  value={cityInput}
+          <>
+            <div className='app_container'>
+              <div className='container-input'>
+                <Formulario getWeatherCity={getWeatherCity} />
+              </div>
+              <div className="container_weather">
+                <WeatherCard
+                  weather={weather}
+                  temp={temp}
                 />
-              </form>
+              </div>
             </div>
-            <div className="container_weather">
-              <WeatherCard
-                weather={weather}
-                temp={temp}
-              />
+            <div>
+              <Hightlights weather={weather} />
             </div>
-          </div>
+          </>
         )
       )}
     </div>

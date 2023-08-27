@@ -1,0 +1,89 @@
+.container-input{
+    width: 100%;
+}
+
+.formulario{
+    background-color: #1E213A;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+
+
+.form {
+    --width-of-input: 200px;
+    --border-height: 1px;
+    --border-before-color: rgb(221, 221, 221);
+    --border-after-color: #5891ff;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
+}
+
+
+.formulario-total{
+    display: flex;
+    width: 100%;
+}
+
+.fomulario-button{
+    border-radius: 50%;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+}
+
+/* styling of Input */
+.input {
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+/* styling of animated border */
+.input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+/* Hover on Input */
+.input:hover {
+    background: var(--input-hovered-color);
+}
+
+.input:focus {
+    outline: none;
+}
+
+/* here is code of animated border */
+.input:focus~.input-border {
+    width: 100%;
+}
+
+/* === if you want to do animated border on typing === */
+/* remove input:focus code and uncomment below code */
+/* input:valid ~ .input-border{
+  width: 100%;
+} */
+
+.busquedad{
+    color: rgba(36, 35, 35, 0.971);
+    background-color: #E7E7EB;
+    padding: 0.3rem;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    cursor: pointer;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.59));
+}

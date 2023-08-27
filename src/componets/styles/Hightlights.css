@@ -1,0 +1,193 @@
+.weather_hightlights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    background: #100E1D;
+    width: 100%;
+    max-width: 520px;
+}
+
+.hightlights_title {
+    color: #E7E7EB;
+    font-family: Raleway;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.weather_container {
+    min-height: 100vh;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: 1rem;
+    
+}
+
+.card {
+    width: 100%;
+    height: 204px;
+    flex-shrink: 0;
+    background: #1E213A;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card_title {
+    color: #E7E7EB;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.cart-abajo{
+    margin-bottom: 1rem;
+}
+.card_date {
+    color: #E7E7EB;
+    font-family: Raleway;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 1rem;
+}
+
+.card_text {
+    color: #E7E7EB;
+    font-family: Raleway;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.icon_hightlights {
+    display: flex;
+    margin-top: 1.7rem;
+    gap: .4rem;
+    align-items: center;
+
+}
+
+
+.svg {
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(-350deg);
+    flex-shrink: 0;
+    background-color: #88869D;
+    border-radius: 50%;
+}
+
+.medition {
+    color: #E7E7EB;
+    font-family: Raleway;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+.progress_bar {
+    width: 100%;
+    height: 13px;
+    background-color: #e0e0e0;
+    position: relative;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+
+.progress_bar_fill {
+    height: 100%;
+    background-color: #FFEC65;
+}
+
+.progress_bar_marker {
+    position: absolute;
+    top: -20px;
+    font-size: 17px;
+    color: #777;
+    color: #A09FB1;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.marker_start {
+    left: 0;
+}
+
+.marker_end {
+    right: 0;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    color: #A09FB1;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+}
+ .footer-title p{
+    text-decoration: underline;
+ }
+
+
+.footer-mio{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+.bxl-linkedin,
+.bxl-github{
+    color: white;
+}
+
+
+@media screen and (min-width: 830px) {
+    body{
+        background-color: rgba(0, 0, 0, 0.711);
+    }
+    .weather_hightlights {
+        height: 80%;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        }
+        .weather_container{
+            min-height: 40vh;
+
+        }
+                .weather_hightlights{
+                    min-height: 40vh;
+                }
+
+}
